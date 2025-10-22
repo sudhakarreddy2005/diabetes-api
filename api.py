@@ -2,14 +2,19 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 
+# --- Initialize Flask app ---
 app = Flask(__name__)
 
-model = joblib.load("model_rf.joblib")
-scaler = joblib.load("scaler.joblib")
+@app.route('/')
+def home():
+    return "🚀 Diabetes Prediction API is live!"
 
-@app.route('/', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     try:
+        model = joblib.load("diabetes_model.joblib")
+        scaler = joblib.load("scaler.joblib")
+
         data = request.get_json(force=True)
         expected_cols = [
             'Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness',
@@ -28,5 +33,6 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
