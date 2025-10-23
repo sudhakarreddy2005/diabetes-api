@@ -12,7 +12,7 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        model = joblib.load("diabetes_model.joblib")
+        model = joblib.load("model_rf.joblib")
         scaler = joblib.load("scaler.joblib")
 
         data = request.get_json(force=True)
