@@ -1,5 +1,5 @@
 import streamlit as st
-import requests
+import requests ,time
 
 # Set page configuration
 st.set_page_config(page_title="Diabetes Predictor", page_icon="🩸", layout="centered")
@@ -38,10 +38,12 @@ if st.button("🔍 Predict Diabetes Risk"):
     with st.spinner("Analyzing..."):
         try:
             response = requests.post(API_URL, json=input_data)
+            time.sleep(2)
             result = response.json()
 
             if "error" in result:
                 st.error("❌ Error: " + result["error"])
+                time.sleep(1)
             else:
                 st.subheader("📊 Prediction Result")
                 st.write(f"**Status:** {result['status']}")
@@ -49,7 +51,10 @@ if st.button("🔍 Predict Diabetes Risk"):
 
                 if result["prediction"] == 1:
                     st.error("⚠️ High Diabetes Risk! Consult a doctor.")
+                    time.sleep(1)
                 else:
                     st.success("💚 Low Risk! Maintain a healthy lifestyle.")
+                    time.sleep(2)
         except Exception as e:
             st.error(f"Connection error: {e}")
+            time.sleep(2)
