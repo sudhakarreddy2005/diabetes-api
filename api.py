@@ -5,11 +5,11 @@ import pandas as pd
 # --- Initialize Flask app ---
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "🚀 Diabetes Prediction API is live!"
+# @app.route('/')
+# def home():
+#     return "🚀 Diabetes Prediction API is live!"
 
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
     try:
         model = joblib.load("diabetes_model.joblib")
