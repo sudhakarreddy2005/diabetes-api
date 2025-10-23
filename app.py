@@ -3,7 +3,7 @@ import requests
 
 # Set page configuration
 st.set_page_config(page_title="Diabetes Predictor", page_icon="🩸", layout="centered")
-st.title("🩸 Diabetes Prediction App")
+st.title("🩸 Reddy Api - Diabetes Prediction App")
 st.write("This app predicts the likelihood of diabetes using your health parameters.")
 
 # --- User Inputs ---
