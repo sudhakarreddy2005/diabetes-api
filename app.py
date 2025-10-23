@@ -17,7 +17,8 @@ DiabetesPedigreeFunction = st.number_input("Diabetes Pedigree Function", 0.0, 3.
 Age = st.number_input("Age", 1, 100, 30)
 
 # API endpoint (Flask running locally)
-API_URL = "http://127.0.0.1:5000/"
+# API_URL = "http://127.0.0.1:5000/"
+ API_URL = "https://diabetes-api-app-rf.onrender.com/predict"
 
 if st.button("🔍 Predict Diabetes Risk"):
     # Prepare JSON payload
