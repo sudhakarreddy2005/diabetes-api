@@ -28,7 +28,7 @@ def predict():
         return jsonify({
             "prediction": int(prediction),
             "probability": round(float(probability), 2),
-            "status": "Diabetic" if prediction == 1 else "Not Diabetic"
+            "status": "Diabeticc" if prediction == 1 else "Not Diabetic"
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 400
